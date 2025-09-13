@@ -9,10 +9,10 @@ import SwiftUI
 struct InfoView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
-            Text("Caracteres Suportados:")
+            Text("Supported Characters:")
                 .font(.headline)
             
-            Text("Letras (A-Z, a-z), números (0-9), pontuação e espaço")
+            Text("Letters (A-Z, a-z), numbers (0-9), punctuation, and space")
                 .font(.caption)
                 .foregroundColor(.secondary)
         }

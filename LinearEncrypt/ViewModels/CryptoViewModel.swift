@@ -42,7 +42,7 @@ class CryptoViewModel: ObservableObject {
     
     func performDecryption() {
         guard !inputText.isEmpty else {
-            showError("Digite o texto criptografado")
+            showError("Enter the encrypted text")
             return
         }
         
@@ -65,7 +65,7 @@ class CryptoViewModel: ObservableObject {
             .filter { !$0.trimmingCharacters(in: .whitespaces).isEmpty }
         
         guard lines.count == matrixSize else {
-            throw CryptoError.invalidMatrix("número de linhas deve ser \(matrixSize)")
+            throw CryptoError.invalidMatrix("number of rows must be \(matrixSize)")
         }
         
         var matrix: [[Int]] = []
@@ -75,7 +75,7 @@ class CryptoViewModel: ObservableObject {
                 .compactMap { Int($0.trimmingCharacters(in: .whitespaces)) }
             
             guard values.count == matrixSize else {
-                throw CryptoError.invalidMatrix("cada linha deve ter \(matrixSize) valores")
+                throw CryptoError.invalidMatrix("each row must have \(matrixSize) values")
             }
             
             matrix.append(values)
@@ -89,3 +89,4 @@ class CryptoViewModel: ObservableObject {
         showAlert = true
     }
 }
+

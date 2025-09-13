@@ -17,15 +17,15 @@ enum CryptoError: Error, LocalizedError {
     var errorDescription: String? {
         switch self {
         case .invalidMatrix(let message):
-            return "Matriz inválida: \(message)"
+            return "Invalid matrix: \(message)"
         case .invalidCharacters(let message):
-            return "Caracteres inválidos: \(message)"
+            return "Invalid characters: \(message)"
         case .matrixNotInitialized:
-            return "Matriz de criptografia não foi configurada"
+            return "Encryption matrix has not been set"
         case .encryptionFailed(let message):
-            return "Falha na criptografia: \(message)"
+            return "Encryption failed: \(message)"
         case .decryptionFailed(let message):
-            return "Falha na descriptografia: \(message)"
+            return "Decryption failed: \(message)"
         }
     }
 }

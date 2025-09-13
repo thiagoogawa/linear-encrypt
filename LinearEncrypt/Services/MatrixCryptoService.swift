@@ -16,7 +16,7 @@ class MatrixCryptoService: ObservableObject {
         let cryptoMatrix = try CryptoMatrix(matrix)
         
         guard cryptoMatrix.isValidForCrypto(mod: CharsetManager.mod) else {
-            throw CryptoError.invalidMatrix("não possui inversa no módulo \(CharsetManager.mod)")
+            throw CryptoError.invalidMatrix("does not have an inverse under modulo \(CharsetManager.mod)")
         }
         
         self.cryptoMatrix = cryptoMatrix
@@ -28,13 +28,13 @@ class MatrixCryptoService: ObservableObject {
         }
         
         guard CharsetManager.validateMessage(message) else {
-            throw CryptoError.invalidCharacters("mensagem contém caracteres não suportados")
+            throw CryptoError.invalidCharacters("message contains unsupported characters")
         }
         
         let paddedMessage = MessageProcessor.padMessage(message, to: matrix.size)
         
         guard let numbers = CharsetManager.toNumbers(paddedMessage) else {
-            throw CryptoError.encryptionFailed("falha ao converter caracteres")
+            throw CryptoError.encryptionFailed("failed to convert characters")
         }
         
         let messageMatrix = MessageProcessor.organizeToMatrix(numbers, matrixSize: matrix.size)
@@ -50,7 +50,7 @@ class MatrixCryptoService: ObservableObject {
         }
         
         guard let numbers = CharsetManager.toNumbers(encryptedMessage) else {
-            throw CryptoError.decryptionFailed("mensagem contém caracteres inválidos")
+            throw CryptoError.decryptionFailed("message contains invalid characters")
         }
         
         guard let invMatrix = MatrixMath.calculateInverseMatrix(
@@ -58,7 +58,7 @@ class MatrixCryptoService: ObservableObject {
             determinant: matrix.determinant,
             mod: CharsetManager.mod
         ) else {
-            throw CryptoError.decryptionFailed("não foi possível calcular a matriz inversa")
+            throw CryptoError.decryptionFailed("could not calculate inverse matrix")
         }
         
         let encMessageMatrix = MessageProcessor.organizeToMatrix(numbers, matrixSize: matrix.size)
@@ -69,4 +69,5 @@ class MatrixCryptoService: ObservableObject {
         return MessageProcessor.unpadMessage(decryptedMessage)
     }
 }
+
 

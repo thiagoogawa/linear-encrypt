@@ -11,10 +11,10 @@ struct MatrixSizePickerView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Tamanho da Matriz:")
+            Text("Matrix Size:")
                 .font(.headline)
             
-            Picker("Tamanho", selection: $viewModel.matrixSize) {
+            Picker("Size", selection: $viewModel.matrixSize) {
                 Text("2x2").tag(2)
                 Text("3x3").tag(3)
             }

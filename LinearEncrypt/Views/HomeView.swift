@@ -117,9 +117,9 @@ struct HomeView: View {
                 
                 // Action buttons
                 VStack(spacing: 20) {
-                    // Botão Criptografar com animação
+                    // Encrypt button with animation
                     AnimatedHomeButton(
-                        title: "Criptografar texto",
+                        title: "Encrypt Text",
                         icon: "lock.circle.fill",
                         colors: [Color.cyan, Color.blue],
                         isPressed: $encryptButtonPressed,
@@ -131,9 +131,9 @@ struct HomeView: View {
                         }
                     )
                     
-                    // Botão Descriptografar com animação
+                    // Decrypt button with animation
                     AnimatedHomeButton(
-                        title: "Descriptografar texto",
+                        title: "Decrypt Text",
                         icon: "lock.open.fill",
                         colors: [Color.indigo, Color.purple],
                         isPressed: $decryptButtonPressed,
@@ -151,7 +151,7 @@ struct HomeView: View {
                 Spacer()
                 
                 // Info text
-                Text("Criptografia usando matrizes (Hill Cipher)")
+                Text("Matrix-based encryption (Hill Cipher)")
                     .font(.caption)
                     .foregroundColor(.white.opacity(0.7))
                     .padding(.bottom, 30)
@@ -159,7 +159,7 @@ struct HomeView: View {
             }
             .padding(.horizontal, 30)
             
-            // Overlay de transição
+            // Transition overlay
             if isTransitioning {
                 Rectangle()
                     .fill(
@@ -181,7 +181,7 @@ struct HomeView: View {
     }
     
     private func performTransition(completion: @escaping () -> Void) {
-        // Feedback háptico
+        // Haptic feedback
         let impactFeedback = UIImpactFeedbackGenerator(style: .medium)
         impactFeedback.impactOccurred()
         
@@ -192,7 +192,7 @@ struct HomeView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
             completion()
             
-            // Reset da transição após navegação
+            // Reset transition after navigation
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 withAnimation(.easeInOut(duration: 0.3)) {
                     isTransitioning = false
@@ -202,7 +202,7 @@ struct HomeView: View {
     }
 }
 
-// Componente de botão animado atualizado
+// Updated animated button component
 struct AnimatedHomeButton: View {
     let title: String
     let icon: String
@@ -280,7 +280,7 @@ struct AnimatedHomeButton: View {
     }
 }
 
-// Extensão para adicionar efeitos de partículas (opcional)
+// Optional particle effect extension
 struct ParticleEffect: View {
     let colors: [Color]
     @State private var animate = false

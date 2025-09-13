@@ -11,10 +11,10 @@ struct MatrixInputView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Matriz de Criptografia:")
+            Text("Encryption Matrix:")
                 .font(.headline)
             
-            Text("Digite os valores separados por vírgula, uma linha por vez")
+            Text("Enter the values separated by commas, one row at a time")
                 .font(.caption)
                 .foregroundColor(.secondary)
             
@@ -28,3 +28,4 @@ struct MatrixInputView: View {
         .padding(.horizontal)
     }
 }
+
