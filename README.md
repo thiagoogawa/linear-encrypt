@@ -1,7 +1,6 @@
 # Linear Encrypt
 An iOS application that encrypts and decrypts characters using the Hill Cipher through matrix operations, connecting theoretical concepts with applied cryptography.
 
-# Preview
 ![linear](https://github.com/user-attachments/assets/7a92f193-8cce-4596-a208-113969916c8b)
 
 
